@@ -1,6 +1,15 @@
 @include('layout.header')
     <div class="panel panel-default">
         <div class="panel-heanding" style="backgroundcolor:#337AB7;color:white;">
+        <h2 style="margin-left:60px;"> Chuyên Mục 
+        @foreach($chuyenmuc as $cm)
+            <ul>        
+                <li><a style="text-decoration:none;font-size:20px;
+                " href="//localhost/MyLaravel/public/loaichuyenmuc/{{$cm->id}}">{{$cm->Ten}}</a></li>
+            </ul>
+        @endforeach    
+        </h2>
+
             <h2 style="color:red;margin-top:50px; margin-bottom:50px;text-align:center;">
                 Tin Tức Chung
             </h2>

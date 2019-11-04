@@ -49,11 +49,4 @@
         <img src="//localhost/MyLaravel/public/bander.jpg" style="width:100%;height:215px;">
     </div>
 
-    <h2 style="margin-left:60px;"> Chuyên Mục 
-        @foreach($chuyenmuc as $cm)
-            <ul>        
-                <li><a style="text-decoration:none;font-size:20px;
-                " href="//localhost/MyLaravel/public/loaichuyenmuc/{{$cm->id}}">{{$cm->Ten}}</a></li>
-            </ul>
-        @endforeach    
-    </h2>
+    
