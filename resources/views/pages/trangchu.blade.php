@@ -2,20 +2,18 @@
     <div class="panel panel-default">
         <div class="panel-heanding" style="backgroundcolor:#337AB7;color:white;">
         <h2 style="margin-left:60px;"> Chuyên Mục 
-        @foreach($chuyenmuc as $cm)
-            <ul>        
-                <li><a style="text-decoration:none;font-size:20px;
-                " href="//localhost/MyLaravel/public/loaichuyenmuc/{{$cm->id}}">{{$cm->Ten}}</a></li>
-            </ul>
-        @endforeach    
+            @foreach($chuyenmuc as $cm)
+                <ul>        
+                    <li><a style="text-decoration:none;font-size:20px;
+                    " href="//localhost/MyLaravel/public/loaichuyenmuc/{{$cm->id}}">{{$cm->Ten}}</a></li>
+                </ul>
+            @endforeach    
         </h2>
-
             <h2 style="color:red;margin-top:50px; margin-bottom:50px;text-align:center;">
                 Tin Tức Chung
             </h2>
-        </div>
-
-        <div class="panel-body" style="margin-left:200px;">
+        </div> 
+            <div class="panel-body" style="margin-left:200px;">
             @foreach($tintuc as $tt)
                 <div class="row-item row">
                     <a href="//localhost/MyLaravel/public/tintuc/{{$tt->id}}/{{$tt->TieuDeKhongDau}}.html"><h3>{{$tt->TieuDe}}</h3></a>   
@@ -26,8 +24,8 @@
             @endforeach
 
              {!! $tintuc->render() !!} 
+            </div>
         </div>
-    </div>
     <style>
         .pagination ul{
             display: inline-block;
