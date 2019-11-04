@@ -8,28 +8,52 @@
     <link rel="stylesheet" href="{{ URL::asset('css/css.css') }}">
 </head>
 <body>
-    <div id="menu">
-        <ul>
-            <a href="//localhost/MyLaravel/public/admin/pages/trangchu">Trang Chủ</a>
-            <a href="#">Chuyên Mục</a>
+    <div id="menu" style="width:90%;">
+             <a href="//localhost/MyLaravel/public/admin/pages/trangchu">Trang Chủ</a>
+
             <a href="//localhost/MyLaravel/public/admin/pages/lienhe">Liên Hệ</a>
             <a href="#">Tin Khác</a>
 
             <div class="container">
-                <input type="search" id="search" placeholder="tìm kiếm" style="font-size:25px;width:250px;float:left; border: #110121 solid 2px;" />
+                <form action="{{asset('search')}}" method="GET" role="form">
+                @csrf
+                    <input name="key" type="search" id="search" placeholder="tìm kiếm" style="margin-left:100px;text-align:center;font-size:25px;height:35px;width:250px;float:left; border: #110121 solid 2px;" />
+                    <button type="submit" style="font-size:25px;height:35px;width:100px;float:left; border: #110121 solid 2px;">Tìm</button>
+                </form>
             </div>
-            <div id="abc"> 
-            @if(!isset($user))
+            <div id="abc" style="text-align:right;"> 
+            @if(Auth::check())
+            <a href="//localhost/MyLaravel/public/dangxuat"  style="border: #110121 solid 1px;">Đăng xuất</a>
+                @if(Auth::user()->level == 0)
+                    <a style="border: #110121 solid 1px;">
+                        xin chào {{Auth::user()->name}}!
+                    </a>
+
+                @else
+                    <a href="//localhost/MyLaravel/public/admin/chuyenmuc/danhsach" style="border: #110121 solid 1px;">
+                        Quản lí trang 
+                    </a>
+                    
+                @endif
+            @else
                 <a href="//localhost/MyLaravel/public/dangnhap"  style="border: #110121 solid 1px;">Đăng Nhập</a>
-                <a href="//localhost/MyLaravel/public/dangki"  style="border: #110121 solid 1px;">Đăng Kí</a>     
-           
-            
-                <a style="border: #110121 solid 1px;">
-                    {{$user->name}}
-                </a>
-                <a href="dangxuat"  style="border: #110121 solid 1px;">Đăng xuất</a>
+                <a href="//localhost/MyLaravel/public/dangki"  style="border: #110121 solid 1px;">Đăng Kí</a>    
+
+
+
             @endif
             </div>
             
         </ul>
+
+        <img src="//localhost/MyLaravel/public/bander.jpg" style="width:100%;height:215px;">
     </div>
+
+    <h2 style="margin-left:60px;"> Chuyên Mục 
+        @foreach($chuyenmuc as $cm)
+            <ul>        
+                <li><a style="text-decoration:none;font-size:20px;
+                " href="//localhost/MyLaravel/public/loaichuyenmuc/{{$cm->id}}">{{$cm->Ten}}</a></li>
+            </ul>
+        @endforeach    
+    </h2>

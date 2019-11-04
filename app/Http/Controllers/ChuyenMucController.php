@@ -64,7 +64,7 @@ class ChuyenMucController extends Controller
     public function getXoa($id){
         $chuyenmuc=Chuyenmuc::find($id);
         $chuyenmuc->delete();
-        return redirect('admin/chuyenmuc/danhsach')->with('notice','Đã xóa thành công chuyên mục'.":".$chuyenmuc->Ten);
+        return redirect('admin/chuyenmuc/danhsach')->with('notice','Đã xóa thành công chuyên mục:'.$chuyenmuc->Ten);
     }
 }
 

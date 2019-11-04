@@ -1,8 +1,8 @@
 @include('layout.header')
     <div class="panel panel-default">
         <div class="panel-heanding" style="backgroundcolor:#337AB7;color:white;">
-            <h2 style="color:red;margin-top:50px; margin-bottom:50px;text-align:center;">
-                Tin Tức Chung
+            <h2 style="color:red;text-align:center;margin-top:50px;margin-bottom:50px;">
+               {{$muc->Ten}}
             </h2>
         </div>
 
@@ -16,7 +16,7 @@
                 <hr>
             @endforeach
 
-             {!! $tintuc->render() !!} 
+            {!! $tintuc->render() !!}      
         </div>
     </div>
     <style>

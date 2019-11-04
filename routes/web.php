@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('loaichuyenmuc/{id}','PageController@getLoaichuyenmuc');
+
 Route::get('/admin/pages/trangchu','PageController@trangchu');
 Route::get('/admin/pages/lienhe','PageController@lienhe');
 
@@ -30,6 +32,14 @@ Route::get('admin/dangxuat','UserController@getDangXuatAmin');
 
 Route::get('dangnhap','PageController@getdangnhap');
 Route::post('dangnhap','PageController@postdangnhap');
+
+Route::get('dangxuat','PageController@getdangxuat');
+
+Route::get('tintuc/{id}/{TieuDeKhongDau}.html','PageController@tintuc');
+
+Route::post('comment/{id}','CommentController@postComment');
+
+Route::get('search','PageController@getsearch');
 
 Route::group(['prefix'=>'admin','middleware'=>'AdminLogin'],function(){
 
