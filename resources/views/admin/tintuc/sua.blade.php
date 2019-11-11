@@ -20,7 +20,7 @@
     </div>
 
     <div class="col-lg-7" style="padding-bottom:120px">
-        <form enctype="multipart/form-data" action="<?php echo url('upload/{{$tintuc->Hinh}}'); ?>" method="POST" style="margin-left:500px;margin-top:100px">
+        <form enctype="multipart/form-data" action="{{$tintuc->id}}" method="POST" style="margin-left:500px;margin-top:100px">
         @csrf
             <div>  
                 <label>Chuyên Mục</label>
@@ -54,7 +54,7 @@
             <div>
                 <label>Hình Ảnh</label>
                 <p>
-                <img width="300px" src="upload/tintuc/{{$tintuc->Hinh}}">
+                <img width="300px" src="//localhost/MyLaravel/public/upload/tintuc/{{$tintuc->Hinh}}">
                 <p>
                 <input type="file" name="Hinh"/>
             </div>
